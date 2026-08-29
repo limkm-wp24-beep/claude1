@@ -1,21 +1,12 @@
-import pickle
-import datetime
-
-import pandas as pd
+from pathlib import Path
 import streamlit as st
-
-st.set_page_config(
-    page_title="Seoul Bike Demand Predictor",
-    page_icon="🚲",
-    layout="centered",
-)
-
+import pickle
 
 @st.cache_resource
 def load_artifact():
-    with open("model.pkl", "rb") as f:
+    model_path = Path(__file__).resolve().parent / "model.pkl"
+    with model_path.open("rb") as f:
         return pickle.load(f)
-
 
 artifact = load_artifact()
 model = artifact["model"]
