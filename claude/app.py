@@ -1,3 +1,4 @@
+import streamlit as st
 from datetime import date
 
 date = st.date_input("Date", value=date.today())
