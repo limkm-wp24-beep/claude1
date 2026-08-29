@@ -1,5 +1,5 @@
 import streamlit as st
-import date
+import datetime
 
 date = st.date_input("Date", value=date.today())
 
